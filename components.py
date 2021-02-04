@@ -1,4 +1,4 @@
-from numpy import zeros, amax
+from numpy import zeros, amax, argsort
 import time
 
 class Histogram(object):
@@ -34,8 +34,25 @@ class Histogram(object):
 
     def clearActive(self):
         """remove all keys from the active set"""
+        # count duration of current pressed keys
         ticks = int((time.time() - self.timestamp) / self.deltaTime)
         for key in self.active:
             self.hist[key] += ticks
         self.active = set()
+
+    def clearAll(self):
+        self.hist=zeros(128, dtype=int)
+        self.max = 1
+        self.active = set()
+        self.timestamp = time.time()
+
+    def top10(self):
+        ans = argsort(self.hist)[-10:]
+        l = list()
+        total = 0
+        for i in ans:
+            total += self.hist[i]+1
+            l.append(total)
+        return ans,l
+
         

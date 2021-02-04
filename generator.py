@@ -34,9 +34,14 @@ print_button(screen,680,180,GRAY,TXT_SAVE)
 running = True
 
 def print_bar(screen,now,max,hist):
+    # print the progress bar
     pygame.draw.rect(screen,GRAY,[0,260,800,20])
     pygame.draw.rect(screen,GREEN,[0,260,800*now/max,20])
-
+    # print the histogram bar
+    pygame.draw.rect(screen,BLUE,[0,280,800,320])
+    for i in range(len(hist.hist)):
+        height = int(1 + 299 * hist.hist[i] / hist.max)
+        pygame.draw.rect(screen,RED,[5+6*i,590-height,4,height])
 
 # open the MIDI file
 player1 = Player(MIDI_FILE_NAME)

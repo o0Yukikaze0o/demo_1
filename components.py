@@ -27,7 +27,9 @@ class Histogram(object):
         """Update the histogram for pressed keys"""
         for key in self.active:
             self.hist[key] += ticks
-        self.max = amax(self.hist)
+        a = amax(self.hist)
+        if a > 0:
+            self.max = a
         self.timestamp = time.time()
 
     def clearActive(self):

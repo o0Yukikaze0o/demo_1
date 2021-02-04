@@ -2,7 +2,7 @@
 ## Background
 This simple application can play the piano track in a given MIDI file, and calculate the pitch histogram of all played notes.
 
-It can also generate a short piece of random rhythm based on the frequencies of occurrence of ten most common notes in the histogram. The rhythm would be played once after generating, and users may save the rhythm if they like it.
+It can also generate short random rhythms based on the frequencies of occurrence of ten most common notes in the histogram. The rhythm would be played once after generating, and users may save the rhythm if they like it.
 
 It takes me a whole night to develop it. I hope this demo can prove my ability of working with python.
 
